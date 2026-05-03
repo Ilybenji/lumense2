@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="currentColor">
+  <!-- Top-left block -->
+  <rect x="0" y="0" width="36" height="50"/>
+  <!-- Top-right block with diagonal cut at bottom-left -->
+  <polygon points="43,0 100,0 100,47 58,47 43,33"/>
+  <!-- Bottom-left small block -->
+  <rect x="0" y="62" width="36" height="38"/>
+  <!-- Bottom-right block with diagonal cut at top-left -->
+  <polygon points="58,53 100,53 100,100 0,100 0,62 43,62"/>
+</svg>

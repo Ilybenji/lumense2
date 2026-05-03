@@ -1,0 +1,161 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Brutalist warm dark palette */
+  --background: #0c0b09;
+  --foreground: #ebe4d0;
+  --card: #15130f;
+  --card-foreground: #ebe4d0;
+  --popover: #15130f;
+  --popover-foreground: #ebe4d0;
+  --primary: #ebe4d0;
+  --primary-foreground: #0c0b09;
+  --secondary: #1a1814;
+  --secondary-foreground: #ebe4d0;
+  --muted: #1a1814;
+  --muted-foreground: #6e6a5e;
+  --accent: #ff4d1c;
+  --accent-foreground: #0c0b09;
+  --destructive: #ff4d1c;
+  --destructive-foreground: #0c0b09;
+  --border: #2a2722;
+  --input: #2a2722;
+  --ring: #ff4d1c;
+  --radius: 0px;
+  --chart-1: #ff4d1c;
+  --chart-2: #ebe4d0;
+  --chart-3: #6e6a5e;
+  --chart-4: #2a2722;
+  --chart-5: #15130f;
+  --sidebar: #0c0b09;
+  --sidebar-foreground: #ebe4d0;
+  --sidebar-primary: #ff4d1c;
+  --sidebar-primary-foreground: #0c0b09;
+  --sidebar-accent: #1a1814;
+  --sidebar-accent-foreground: #ebe4d0;
+  --sidebar-border: #2a2722;
+  --sidebar-ring: #ff4d1c;
+}
+
+.dark {
+  --background: #0c0b09;
+  --foreground: #ebe4d0;
+  --card: #15130f;
+  --card-foreground: #ebe4d0;
+  --popover: #15130f;
+  --popover-foreground: #ebe4d0;
+  --primary: #ebe4d0;
+  --primary-foreground: #0c0b09;
+  --secondary: #1a1814;
+  --secondary-foreground: #ebe4d0;
+  --muted: #1a1814;
+  --muted-foreground: #6e6a5e;
+  --accent: #ff4d1c;
+  --accent-foreground: #0c0b09;
+  --destructive: #ff4d1c;
+  --destructive-foreground: #0c0b09;
+  --border: #2a2722;
+  --input: #2a2722;
+  --ring: #ff4d1c;
+}
+
+@theme inline {
+  --font-sans: var(--font-display), 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: var(--font-mono-tech), 'JetBrains Mono', ui-monospace, monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    background-color: var(--background);
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-foreground);
+  }
+}
+
+@layer utilities {
+  .grid-lines {
+    background-image:
+      linear-gradient(to right, rgba(235, 228, 208, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(235, 228, 208, 0.05) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+  .dotted-bg {
+    background-image: radial-gradient(rgba(235, 228, 208, 0.08) 1px, transparent 1px);
+    background-size: 14px 14px;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  .marquee {
+    animation: marquee 40s linear infinite;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .ticker {
+    animation: ticker 80s linear infinite;
+  }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .blink {
+    animation: blink 1.2s steps(2, end) infinite;
+  }
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+}
