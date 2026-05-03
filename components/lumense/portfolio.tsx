@@ -26,7 +26,7 @@ const projects: Project[] = [
     title: "Brand identity & e-commerce",
     type: "Identity · Web",
     year: "2025",
-    image: "/work/safer.jpg",
+    image: "https://i.ibb.co/jcDsHQ1/safermockup.png",
     tags: ["Identity", "Packaging", "Web"],
   },
   {
