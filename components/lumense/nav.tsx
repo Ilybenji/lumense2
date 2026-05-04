@@ -34,7 +34,7 @@ export function Nav() {
               <path d="M0,0L0,-98.612L-98.612,-98.612L-98.612,98.607L0,0Z" />
             </g>
           </svg>
-          <span className="font-sans text-lg font-medium tracking-tight">
+          <span className="font-sans text-sm font-medium tracking-tight">
             Lumense<span className="text-accent">.</span>
           </span>
         </Link>

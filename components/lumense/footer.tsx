@@ -6,9 +6,9 @@ export function Footer() {
       {/* Big wordmark with logo */}
       <div className="border-b border-border">
         <div className="mx-auto max-w-[1440px] px-4 py-12 md:px-8 md:py-20">
-          <div className="flex items-end gap-6 md:gap-10">
-            <div className="mb-2 shrink-0 opacity-90 md:w-[160px]">
-              <svg width="120" height="120" viewBox="0 0 2000 2000" className="fill-foreground" xmlns="http://www.w3.org/2000/svg">
+          <div className="flex items-center">
+            <div className="opacity-90 w-32 md:w-64">
+              <svg viewBox="0 0 2000 2000" className="w-full h-auto fill-foreground" xmlns="http://www.w3.org/2000/svg">
                 <g transform="matrix(5.448014,0,0,5.448014,-1335.055625,-867.480903)">
                   <rect x="280.692" y="392.085" width="98.612" height="98.612" />
                 </g>
@@ -22,12 +22,6 @@ export function Footer() {
                   <path d="M0,0L0,-98.612L-98.612,-98.612L-98.612,98.607L0,0Z" />
                 </g>
               </svg>
-            </div>
-            <div
-              aria-hidden
-              className="select-none font-sans text-[18vw] font-medium leading-[0.85] tracking-[-0.05em] text-foreground/95 md:text-[15vw]"
-            >
-              Lumense<span className="text-accent">.</span>
             </div>
           </div>
         </div>

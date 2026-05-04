@@ -1,16 +1,28 @@
-import Image from "next/image"
+
 import Link from "next/link"
 import { ArrowDown, ArrowUpRight } from "lucide-react"
 import { Reveal } from "@/components/ui/reveal"
+import { GlyphField } from "@/components/lumense/glyph-field"
 
 export function Hero() {
   return (
-    <section className="relative border-b border-border">
-      <div className="relative mx-auto grid max-w-[1440px] grid-cols-12 gap-x-4 px-4 pt-16 md:px-8 md:pt-24">
+    <section className="relative border-b border-border overflow-hidden">
+      {/* Animated glyph canvas — sits behind all hero content */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          maskImage: "linear-gradient(to bottom, black 0%, black 50%, transparent 95%)",
+          WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 50%, transparent 95%)",
+        }}
+      >
+        <GlyphField className="opacity-50" />
+      </div>
+
+      <div className="relative z-10 mx-auto grid max-w-[1440px] grid-cols-12 gap-x-4 px-4 pt-16 md:px-8 md:pt-24">
         {/* Headline */}
-        <div className="col-span-12 lg:col-span-9">
+        <div className="col-span-12">
           <Reveal>
-            <h1 className="font-sans text-balance text-[14vw] font-medium leading-[0.88] tracking-[-0.04em] md:text-[10vw] lg:text-[8.5vw]">
+            <h1 className="font-sans text-balance text-[12vw] font-medium leading-[0.88] tracking-[-0.04em] md:text-[8.5vw] lg:text-[6.5vw]">
               Varumärken<br />
               som syns<br />
               <span className="inline-flex items-center gap-2">
@@ -36,21 +48,6 @@ export function Hero() {
           </Reveal>
         </div>
 
-        {/* Right column — image only */}
-        <aside className="col-span-12 mt-10 flex flex-col justify-end lg:col-span-3 lg:mt-16">
-          <Reveal>
-            <div className="aspect-square w-full max-w-xs overflow-hidden border border-border lg:max-w-none transition-transform duration-700 ease-out hover:scale-[1.01]">
-              <Image
-                src="/hero/object.jpg"
-                alt="Sculptural studio object — Lumense brand mark"
-                width={800}
-                height={800}
-                className="h-full w-full object-cover grayscale-[0.15] transition-transform duration-700 ease-out"
-                priority
-              />
-            </div>
-          </Reveal>
-        </aside>
 
         {/* Sub block */}
         <Reveal className="col-span-12 mt-12 grid grid-cols-12 gap-4 border-t border-border pt-10 md:mt-20">
