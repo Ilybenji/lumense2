@@ -2,7 +2,7 @@
 import Link from "next/link"
 import { ArrowDown, ArrowUpRight } from "lucide-react"
 import { Reveal } from "@/components/ui/reveal"
-import { GlyphField } from "@/components/lumense/glyph-field"
+import { GlyphField } from "./glyph-field"
 
 export function Hero() {
   return (
