@@ -26,7 +26,10 @@ export function Reveal({ children, className, delay }: RevealProps) {
           }
         }
       },
-      { threshold: 0.15 },
+      {
+        threshold: 0.08,
+        rootMargin: "0px 0px -6% 0px",
+      },
     )
 
     observer.observe(element)
@@ -38,7 +41,7 @@ export function Reveal({ children, className, delay }: RevealProps) {
     <div
       ref={ref}
       className={cn(
-        "opacity-0 translate-y-8 transition-all duration-700 ease-out will-change-transform",
+        "opacity-0 translate-y-6 transition-[opacity,transform] duration-900 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform",
         visible && "opacity-100 translate-y-0",
         className,
       )}

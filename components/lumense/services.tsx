@@ -79,9 +79,9 @@ export function Services() {
             <Reveal
               key={s.index}
               delay={index * 70}
-              className="group grid grid-cols-12 gap-4 border-b border-border py-8 transition-colors hover:bg-card/40 md:py-10"
+              className="group grid grid-cols-12 gap-4 border-b border-border py-8 transition-[background-color,transform] duration-400 hover:-translate-y-0.5 hover:bg-card/40 md:py-10"
             >
-              <div className="col-span-2 font-mono text-[11px] uppercase tracking-[0.22em] text-accent md:col-span-1">
+              <div className="col-span-2 font-mono text-[11px] uppercase tracking-[0.22em] text-accent transition-transform duration-300 group-hover:translate-x-0.5 md:col-span-1">
                 {s.index}
               </div>
 
@@ -103,9 +103,9 @@ export function Services() {
               <div className="col-span-12 md:col-span-2">
                 <ul className="space-y-1.5 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
                   {s.deliverables.map((d) => (
-                    <li key={d} className="flex items-center gap-2">
-                      <span aria-hidden className="size-1 bg-accent" />
-                      <span>{d}</span>
+                    <li key={d} className="flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-0.5">
+                      <span aria-hidden className="size-1 bg-accent transition-transform duration-300 group-hover:scale-125" />
+                      <span className="transition-colors duration-300 group-hover:text-foreground">{d}</span>
                     </li>
                   ))}
                 </ul>

@@ -80,6 +80,7 @@ export function Footer() {
             Contact
           </h4>
           <ul className="mt-4 space-y-2 font-sans text-sm">
+            <li className="text-foreground/80">Berk Grbovic</li>
             <li>
               <Link href="mailto:hello@lumense.xyz" className="text-foreground/80 transition-colors hover:text-accent">
                 hello@lumense.xyz

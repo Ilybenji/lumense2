@@ -2,6 +2,7 @@
 import Link from "next/link"
 import { ArrowDown, ArrowUpRight } from "lucide-react"
 import { Reveal } from "@/components/ui/reveal"
+import { CountUp } from "@/components/ui/count-up"
 import { GlyphField } from "./glyph-field"
 
 export function Hero() {
@@ -81,17 +82,17 @@ export function Hero() {
         {/* Bottom data strip */}
         <div className="col-span-12 mt-12 grid grid-cols-2 gap-px border-t border-border bg-border md:mt-20 md:grid-cols-4">
           {[
-            { k: "COMPLETED PROJECTS", v: "15+" },
-            { k: "HAPPY CLIENTS", v: "15+" },
-            { k: "YEARS OF EXPERIENCE", v: "03+" },
-            { k: "INDUSTRIES", v: "08" },
+            { k: "COMPLETED PROJECTS", v: 15, suffix: "+" },
+            { k: "HAPPY CLIENTS", v: 15, suffix: "+" },
+            { k: "YEARS OF EXPERIENCE", v: 3, suffix: "+" },
+            { k: "INDUSTRIES", v: 8, suffix: "" },
           ].map((s) => (
-            <div key={s.k} className="bg-background px-4 py-5">
+            <div key={s.k} className="group bg-background px-4 py-5 transition-colors duration-300 hover:bg-card/50">
               <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
                 {s.k}
               </div>
-              <div className="mt-2 font-sans text-3xl font-medium tracking-tight md:text-4xl">
-                {s.v}
+              <div className="mt-2 font-sans text-3xl font-medium tracking-tight transition-transform duration-300 group-hover:-translate-y-0.5 md:text-4xl">
+                <CountUp to={s.v} suffix={s.suffix} />
               </div>
             </div>
           ))}

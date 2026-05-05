@@ -5,7 +5,6 @@ import { Manifest } from "@/components/lumense/manifest"
 import { Services } from "@/components/lumense/services"
 import { Portfolio } from "@/components/lumense/portfolio"
 import { Process } from "@/components/lumense/process"
-import { Testimonials } from "@/components/lumense/testimonials"
 import { Contact } from "@/components/lumense/contact"
 import { Footer } from "@/components/lumense/footer"
 
@@ -19,7 +18,6 @@ export default function HomePage() {
       <Services />
       <Portfolio />
       <Process />
-      <Testimonials />
       <Contact />
       <Footer />
     </main>

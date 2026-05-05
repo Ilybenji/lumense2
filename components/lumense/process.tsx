@@ -53,9 +53,9 @@ export function Process() {
 
         <ol className="mt-12 grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-2 xl:grid-cols-4">
           {steps.map((step) => (
-            <li key={step.index} className="relative bg-background p-6 md:p-8">
+            <li key={step.index} className="group relative bg-background p-6 transition-colors duration-300 hover:bg-card/40 md:p-8">
               <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-                <span className="text-accent">{step.index}</span>
+                <span className="text-accent transition-transform duration-300 group-hover:translate-x-0.5">{step.index}</span>
                 <span>{step.phase}</span>
               </div>
 
@@ -70,6 +70,10 @@ export function Process() {
                 <span className="text-foreground/80">Output -&gt; </span>
                 {step.output}
               </div>
+              <span
+                aria-hidden
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-accent transition-transform duration-400 group-hover:scale-x-100"
+              />
             </li>
           ))}
         </ol>

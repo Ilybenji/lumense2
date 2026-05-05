@@ -23,7 +23,7 @@ const projects: Project[] = [
     id: "safer",
     index: "001",
     client: "Safer",
-    title: "Brand identity & e-commerce",
+    title: "Brand identity | Escrow",
     type: "Identity · Web",
     year: "2025",
     image: "https://i.ibb.co/jcDsHQ1/safermockup.png",

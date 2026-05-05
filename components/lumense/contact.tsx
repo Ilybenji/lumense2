@@ -24,14 +24,14 @@ export function Contact() {
             <div className="mt-10 flex flex-wrap gap-3">
               <Link
                 href="mailto:hello@lumense.xyz"
-                className="group inline-flex items-center gap-3 border border-foreground bg-foreground px-6 py-4 font-mono text-xs uppercase tracking-[0.22em] text-background transition-colors hover:bg-accent hover:border-accent hover:text-accent-foreground"
+                className="group inline-flex items-center gap-3 border border-foreground bg-foreground px-6 py-4 font-mono text-xs uppercase tracking-[0.22em] text-background transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent hover:border-accent hover:text-accent-foreground hover:shadow-[0_0_24px_rgba(255,77,28,0.22)]"
               >
                 hello@lumense.xyz
                 <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
               <Link
                 href="https://t.me/lumense"
-                className="group inline-flex items-center gap-3 border border-border px-6 py-4 font-mono text-xs uppercase tracking-[0.22em] text-foreground transition-colors hover:border-foreground"
+                className="group inline-flex items-center gap-3 border border-border px-6 py-4 font-mono text-xs uppercase tracking-[0.22em] text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-foreground hover:bg-card/50"
               >
                 Telegram -&gt; @lumense
                 <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

@@ -61,22 +61,22 @@ export function Nav() {
             <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
 
-          <details className="relative md:hidden">
+          <details className="group relative md:hidden">
             <summary
               aria-label="Open menu"
               className="flex size-10 cursor-pointer list-none items-center justify-center border border-border text-foreground transition-colors hover:border-foreground"
             >
               <span className="sr-only">Menu</span>
               <span aria-hidden className="flex flex-col gap-1">
-                <span className="h-px w-4 bg-current" />
-                <span className="h-px w-4 bg-current" />
-                <span className="h-px w-4 bg-current" />
+                <span className="h-px w-4 bg-current transition-transform duration-300 group-open:translate-y-[5px] group-open:rotate-45" />
+                <span className="h-px w-4 bg-current transition-opacity duration-300 group-open:opacity-0" />
+                <span className="h-px w-4 bg-current transition-transform duration-300 group-open:-translate-y-[5px] group-open:-rotate-45" />
               </span>
             </summary>
 
             <nav
               aria-label="Mobile navigation"
-              className="absolute right-0 top-[calc(100%+0.5rem)] z-50 w-56 border border-border bg-background p-2 shadow-2xl"
+              className="pointer-events-none absolute right-0 top-[calc(100%+0.5rem)] z-50 w-56 origin-top-right translate-y-1 scale-95 border border-border bg-background p-2 opacity-0 shadow-2xl transition-all duration-300 group-open:pointer-events-auto group-open:translate-y-0 group-open:scale-100 group-open:opacity-100"
             >
               {links.map((l) => (
                 <Link
