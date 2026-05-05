@@ -2,21 +2,21 @@ import { SectionHeader } from "./section-header"
 
 const quotes = [
   {
-    body: "Lumense levererade inte bara en fantastisk design — utan en strategi som faktiskt fångade vår vision och som hela teamet kunde stå bakom.",
+    body: "Lumense delivered not just outstanding design, but a strategy that truly captured our vision and aligned the entire team.",
     name: "John Doe",
-    role: "Grundare",
+    role: "Founder",
     company: "Nordvik Solutions",
     code: "T.01",
   },
   {
-    body: "Samarbetet var en game-changer för vårt varumärke. Den kreativa processen och uppmärksamheten på detaljer resulterade i en identitet som verkligen sticker ut.",
+    body: "The collaboration was a game changer for our brand. The creative process and attention to detail resulted in an identity that truly stands out.",
     name: "Jane Doe",
     role: "Creative Director",
     company: "Ether Studio",
     code: "T.02",
   },
   {
-    body: "Snabba, ärliga, opretentiösa. De levererade en visuell plattform vi fortfarande använder — fyra rebrands hade varit billigare än att köpa något annat.",
+    body: "Fast, honest, and unpretentious. They delivered a visual platform we still use today.",
     name: "Mikael Lind",
     role: "CMO",
     company: "Halden Co.",
@@ -32,7 +32,7 @@ export function Testimonials() {
           <div className="flex items-baseline gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-background/60">
             <span className="text-accent">05</span>
             <span className="text-background/30">—</span>
-            <span className="text-background">OMDÖMEN</span>
+            <span className="text-background">TESTIMONIALS</span>
           </div>
         </div>
 

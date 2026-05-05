@@ -21,6 +21,11 @@ function hexToRgb(hex: string): { r: number; g: number; b: number } | null {
   return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 }
 }
 
+function smoothstep(edge0: number, edge1: number, x: number): number {
+  const t = Math.max(0, Math.min(1, (x - edge0) / (edge1 - edge0)))
+  return t * t * (3 - 2 * t)
+}
+
 export function GlyphField({ className = "" }: { className?: string }) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const rafRef = useRef<number | null>(null)
@@ -37,12 +42,12 @@ export function GlyphField({ className = "" }: { className?: string }) {
       window.matchMedia("(prefers-reduced-motion: reduce)").matches
 
     // Glyph palette — sparse, technical
-    const glyphs = [".", "·", "·", "·", "+", "·", "•", "·", "/", "·", "—", "·"]
+    const glyphs = [".", "·", "+", "•", "/", "—"]
 
     let dpr = 1
     let cols = 0
     let rows = 0
-    const cell = 14 // px per cell at 1x
+    const cell = 12 // px per cell at 1x
 
     function resize() {
       if (!canvas || !ctx) return
@@ -76,7 +81,7 @@ export function GlyphField({ className = "" }: { className?: string }) {
       const h = canvas.height / dpr
       ctx.clearRect(0, 0, w, h)
 
-      ctx.font = `10px ${getComputedStyle(document.body).getPropertyValue("--font-mono") || "ui-monospace"}`
+      ctx.font = `11px ${getComputedStyle(document.body).getPropertyValue("--font-mono") || "ui-monospace"}`
       ctx.textBaseline = "middle"
       ctx.textAlign = "center"
 
@@ -105,28 +110,29 @@ export function GlyphField({ className = "" }: { className?: string }) {
 
           const energy = Math.max(0, v + jitter) // 0..~1.4
 
-          // Threshold: most of the field is empty, only peaks render
-          if (energy < 0.45) continue
-
-          const alpha = Math.min(0.55, (energy - 0.45) * 0.9)
-          const isAccent = energy > 1.05 && (seed % 7 === 0)
+          // Smooth ramp instead of hard threshold to avoid popping/flicker.
+          const strength = smoothstep(0.16, 0.98, energy)
+          if (strength < 0.03) continue
+          const alpha = Math.min(0.82, strength * 0.82)
+          const isAccent = energy > 0.92 && (seed % 5 === 0)
 
           if (isAccent) {
             ctx.fillStyle = `rgba(${accentRgb.r}, ${accentRgb.g}, ${accentRgb.b}, ${alpha})`
           } else {
-            ctx.fillStyle = `rgba(${fgRgb.r}, ${fgRgb.g}, ${fgRgb.b}, ${alpha * 0.6})`
+            ctx.fillStyle = `rgba(${fgRgb.r}, ${fgRgb.g}, ${fgRgb.b}, ${alpha * 0.75})`
           }
 
-          const g = glyphs[(seed + Math.floor(t * 0.5) + r) % glyphs.length]
+          // Keep glyph identity stable per-cell; motion comes from alpha waves.
+          const g = glyphs[(seed + r) % glyphs.length]
           ctx.fillText(g, x, y)
         }
       }
 
-      // Occasional horizontal scanline — barely visible
-      const scanY = ((t * 60) % (h + 200)) - 100
+      // Continuous scan glow with sinusoidal motion (no hard reset/cut).
+      const scanY = h * (0.45 + 0.35 * Math.sin(t * 0.28))
       const grad = ctx.createLinearGradient(0, scanY - 60, 0, scanY + 60)
       grad.addColorStop(0, "transparent")
-      grad.addColorStop(0.5, `rgba(${accentRgb.r}, ${accentRgb.g}, ${accentRgb.b}, 0.06)`)
+      grad.addColorStop(0.5, `rgba(${accentRgb.r}, ${accentRgb.g}, ${accentRgb.b}, 0.09)`)
       grad.addColorStop(1, "transparent")
       ctx.fillStyle = grad
       ctx.fillRect(0, scanY - 60, w, 120)

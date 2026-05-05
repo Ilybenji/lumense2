@@ -1,8 +1,8 @@
 const items = [
-  "GRAFISK DESIGN",
-  "VARUMÄRKESIDENTITET",
-  "WEBBDESIGN",
-  "RÖRLIGT INNEHÅLL",
+  "GRAPHIC DESIGN",
+  "BRAND IDENTITY",
+  "WEB DESIGN",
+  "MOTION CONTENT",
 ]
 
 export function Ticker() {

@@ -46,12 +46,12 @@ export function Footer() {
             </svg>
             <span className="font-sans text-lg font-medium tracking-tight">Lumense</span>
             <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-              / GRAFISK DESIGNSTUDIO
+              / GRAPHIC DESIGN STUDIO
             </span>
           </div>
           <p className="mt-6 max-w-sm font-sans text-sm leading-relaxed text-foreground/70">
-            Oberoende designstudio baserad i Stockholm. Vi bygger varumärken, identiteter
-            och digitala upplevelser för företag som vägrar smälta in.
+            Independent design studio based in Stockholm. We build brands, identities,
+            and digital experiences for companies that refuse to blend in.
           </p>
         </div>
 
@@ -62,8 +62,8 @@ export function Footer() {
           <ul className="mt-4 space-y-2 font-sans text-sm">
             {[
               { l: "Manifest", h: "#manifest" },
-              { l: "Tjänster", h: "#tjanster" },
-              { l: "Arbeten", h: "#arbeten" },
+              { l: "Services", h: "#tjanster" },
+              { l: "Work", h: "#arbeten" },
               { l: "Process", h: "#process" },
             ].map((i) => (
               <li key={i.l}>
@@ -77,7 +77,7 @@ export function Footer() {
 
         <div className="col-span-6 md:col-span-2">
           <h4 className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-            Kontakt
+            Contact
           </h4>
           <ul className="mt-4 space-y-2 font-sans text-sm">
             <li>
@@ -105,10 +105,10 @@ export function Footer() {
           <div className="mt-4 border border-border p-4">
             <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-foreground">
               <span aria-hidden className="size-1.5 bg-accent blink" />
-              TAR EMOT PROJEKT
+              ACCEPTING PROJECTS
             </div>
             <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-              Q3 / Q4 2026 — BEGRÄNSAT ANTAL
+              Q3 / Q4 2026 - LIMITED SPOTS
             </p>
           </div>
         </div>

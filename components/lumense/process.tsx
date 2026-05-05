@@ -4,34 +4,34 @@ const steps = [
   {
     index: "01",
     phase: "DISCOVERY",
-    title: "Lyssna & kartlägg",
+    title: "Listen & map",
     body:
-      "Vi börjar med er — affär, marknad, mål. Workshop, intervjuer och konkurrentanalys ger oss råmaterialet för riktning.",
-    output: "Brief · Insiktsdokument · Riktning",
+      "We start with you - business, market, goals. Workshops, interviews, and competitor analysis give us the raw material for direction.",
+    output: "Brief · Insights document · Direction",
   },
   {
     index: "02",
     phase: "STRATEGY",
-    title: "Positionera & forma",
+    title: "Position & shape",
     body:
-      "Strategi som översätts till design — varumärkesplattform, tonalitet och de visuella territorier vi ska utforska.",
-    output: "Plattform · Moodboards · Territorier",
+      "Strategy translated into design - brand platform, tone of voice, and the visual territories we will explore.",
+    output: "Platform · Moodboards · Territories",
   },
   {
     index: "03",
     phase: "DESIGN",
-    title: "Forma & förfina",
+    title: "Craft & refine",
     body:
-      "Designarbetet sker iterativt. Vi visar mindre, men oftare — och rör oss snabbt mellan koncept och färdig produktion.",
-    output: "Identitet · System · Produktion",
+      "The design work is iterative. We show less, but more often - and move quickly between concept and final production.",
+    output: "Identity · System · Production",
   },
   {
     index: "04",
     phase: "LAUNCH & CARE",
-    title: "Lansera & förvalta",
+    title: "Launch & support",
     body:
-      "Vi följer med från första touchpoint till lansering — och stannar kvar för det som kommer efter. Designen lever vidare.",
-    output: "Rollout · Riktlinjer · Support",
+      "We stay with you from first touchpoint to launch - and remain for what comes after. The design keeps evolving.",
+    output: "Rollout · Guidelines · Support",
   },
 ]
 
@@ -43,11 +43,11 @@ export function Process() {
 
         <div className="mt-14 grid grid-cols-12 gap-x-4 gap-y-8">
           <h2 className="col-span-12 font-sans text-balance text-4xl font-medium leading-[1.02] tracking-[-0.02em] md:text-6xl lg:col-span-8 lg:text-7xl">
-            Hur vi arbetar — <span className="text-muted-foreground">utan att förenkla det.</span>
+            How we work - <span className="text-muted-foreground">without oversimplifying it.</span>
           </h2>
           <p className="col-span-12 max-w-sm self-end text-pretty font-sans text-sm leading-relaxed text-foreground/70 md:text-base lg:col-span-4">
-            En transparent process där ni alltid vet var vi är, vart vi är på väg och
-            vad nästa steg innebär. Inga svarta lådor.
+            A transparent process where you always know where we are, where we are
+            headed, and what the next step means. No black boxes.
           </p>
         </div>
 
@@ -67,7 +67,7 @@ export function Process() {
               </p>
 
               <div className="mt-8 border-t border-border pt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                <span className="text-foreground/80">Leverans → </span>
+                <span className="text-foreground/80">Output -&gt; </span>
                 {step.output}
               </div>
             </li>

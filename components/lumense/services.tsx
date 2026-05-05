@@ -4,54 +4,54 @@ import { SectionHeader } from "./section-header"
 const services = [
   {
     index: "01",
-    title: "Grafisk design",
-    tagline: "System, inte snitt.",
+    title: "Graphic design",
+    tagline: "Systems, not one-offs.",
     body:
-      "Trycksaker, visuella system och grafiska element som kommunicerar med precision — från redaktionellt till kampanj.",
+      "Print, visual systems, and graphic elements that communicate with precision - from editorial to campaign.",
     deliverables: [
-      "Visuella system",
+      "Visual systems",
       "Editorial & print",
-      "Layout & typsättning",
-      "Kampanjmaterial",
+      "Layout & typesetting",
+      "Campaign assets",
     ],
   },
   {
     index: "02",
-    title: "Varumärkesidentitet",
-    tagline: "Från logotyp till ekosystem.",
+    title: "Brand identity",
+    tagline: "From logo to ecosystem.",
     body:
-      "Vi bygger identiteter som lever i alla format — logotyp, typografi, färg, tonalitet och riktlinjer som faktiskt används.",
+      "We build identities that work across every format - logo, typography, color, tone of voice, and guidelines that are actually used.",
     deliverables: [
-      "Strategi & positionering",
-      "Logotyp & wordmark",
-      "Typografiska system",
+      "Strategy & positioning",
+      "Logo & wordmark",
+      "Typographic systems",
       "Brand guidelines",
     ],
   },
   {
     index: "03",
-    title: "Webbdesign",
-    tagline: "Designat för beslut.",
+    title: "Web design",
+    tagline: "Designed for decisions.",
     body:
-      "Responsiva digitala upplevelser med fokus på interaktion, prestanda och visuell impact — designat och utvecklat in-house.",
+      "Responsive digital experiences focused on interaction, performance, and visual impact - designed and developed in-house.",
     deliverables: [
-      "Webbplatser & landingpages",
-      "Designsystem",
-      "Interaktionsdesign",
-      "Frontend-utveckling",
+      "Websites & landing pages",
+      "Design systems",
+      "Interaction design",
+      "Frontend development",
     ],
   },
   {
     index: "04",
-    title: "Rörligt innehåll",
-    tagline: "Motion med mening.",
+    title: "Motion content",
+    tagline: "Motion with meaning.",
     body:
-      "Motion graphics, animationer och videoproduktion som fångar uppmärksamheten — och håller kvar den.",
+      "Motion graphics, animation, and video production that capture attention - and keep it.",
     deliverables: [
       "Brand reels",
       "Motion graphics",
-      "Loopar & assets",
-      "Sociala format",
+      "Loops & assets",
+      "Social formats",
     ],
   },
 ]
@@ -60,17 +60,17 @@ export function Services() {
   return (
     <section id="tjanster" className="border-b border-border">
       <div className="mx-auto max-w-[1440px] px-4 py-16 md:px-8 md:py-24">
-        <SectionHeader index="02" label="TJÄNSTER" />
+        <SectionHeader index="02" label="SERVICES" />
 
         <div className="mt-14 grid grid-cols-12 gap-x-4 gap-y-8">
           <Reveal className="col-span-12 lg:col-span-9">
             <h2 className="font-sans text-balance text-4xl font-medium leading-[1.02] tracking-[-0.02em] md:text-6xl lg:text-7xl">
-              Vad vi gör — <span className="text-muted-foreground">och vad vi inte gör.</span>
+              What we do - <span className="text-muted-foreground">and what we do not do.</span>
             </h2>
           </Reveal>
           <Reveal className="col-span-12 max-w-md self-end text-pretty font-sans text-sm leading-relaxed text-foreground/70 md:text-base lg:col-span-3">
-            Fyra discipliner. Inga extras, inga AI-recept, inga mallar.
-            Varje projekt formas runt målet — inte runt en process-pdf.
+            Four disciplines. No extras, no AI recipes, no templates.
+            Every project is shaped around the goal - not around a process PDF.
           </Reveal>
         </div>
 

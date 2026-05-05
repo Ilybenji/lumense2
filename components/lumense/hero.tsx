@@ -15,7 +15,7 @@ export function Hero() {
           WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 50%, transparent 95%)",
         }}
       >
-        <GlyphField className="opacity-50" />
+        <GlyphField className="opacity-80" />
       </div>
 
       <div className="relative z-10 mx-auto grid max-w-[1440px] grid-cols-12 gap-x-4 px-4 pt-16 md:px-8 md:pt-24">
@@ -23,11 +23,14 @@ export function Hero() {
         <div className="col-span-12">
           <Reveal>
             <h1 className="font-sans text-balance text-[12vw] font-medium leading-[0.88] tracking-[-0.04em] md:text-[8.5vw] lg:text-[6.5vw]">
-              Varumärken<br />
-              som syns<br />
-              <span className="inline-flex items-center gap-2">
-                i framtiden
-                <span aria-hidden className="inline-flex h-[0.7em] w-[0.7em] rounded-sm bg-accent text-background">
+              Brands<br />
+              built to be<br />
+              <span>
+                seen in the future
+                <span
+                  aria-hidden
+                  className="ml-[0.18em] inline-flex h-[0.7em] w-[0.7em] translate-y-[0.06em] rounded-sm bg-accent align-baseline text-background"
+                >
                   <svg viewBox="0 0 2000 2000" className="h-full w-full fill-current" xmlns="http://www.w3.org/2000/svg">
                     <g transform="matrix(5.448014,0,0,5.448014,-1335.055625,-867.480903)">
                       <rect x="280.692" y="392.085" width="98.612" height="98.612" />
@@ -52,9 +55,9 @@ export function Hero() {
         {/* Sub block */}
         <Reveal className="col-span-12 mt-12 grid grid-cols-12 gap-4 border-t border-border pt-10 md:mt-20">
           <p className="col-span-12 max-w-2xl text-pretty font-sans text-base leading-relaxed text-foreground/80 md:col-span-6 md:text-lg">
-            Lumense är en oberoende designstudio som bygger varumärkesidentitet, visuell
-            kommunikation och digitalt innehåll — designat för att göra intryck, inte fylla
-            ut utrymme.
+            Lumense is an independent design studio creating brand identity, visual
+            communication, and digital content - designed to make an impact, not to fill
+            space.
           </p>
 
           <div className="col-span-12 flex flex-wrap items-center gap-3 md:col-span-6 md:justify-end">
@@ -62,14 +65,14 @@ export function Hero() {
               href="#kontakt"
               className="group inline-flex items-center gap-3 rounded-lg border border-foreground bg-foreground px-5 py-3 font-mono text-xs uppercase tracking-[0.18em] text-background transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent hover:border-accent hover:text-accent-foreground"
             >
-              Starta ett projekt
+              Start a project
               <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
             <Link
               href="#arbeten"
               className="inline-flex items-center gap-3 rounded-lg border border-border px-5 py-3 font-mono text-xs uppercase tracking-[0.18em] text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-foreground"
             >
-              Se utvalda arbeten
+              See selected work
               <ArrowDown className="size-4" />
             </Link>
           </div>
@@ -78,10 +81,10 @@ export function Hero() {
         {/* Bottom data strip */}
         <div className="col-span-12 mt-12 grid grid-cols-2 gap-px border-t border-border bg-border md:mt-20 md:grid-cols-4">
           {[
-            { k: "GENOMFÖRDA PROJEKT", v: "15+" },
-            { k: "NÖJDA KUNDER", v: "15+" },
-            { k: "ÅRS ERFARENHET", v: "03+" },
-            { k: "INDUSTRIER", v: "08" },
+            { k: "COMPLETED PROJECTS", v: "15+" },
+            { k: "HAPPY CLIENTS", v: "15+" },
+            { k: "YEARS OF EXPERIENCE", v: "03+" },
+            { k: "INDUSTRIES", v: "08" },
           ].map((s) => (
             <div key={s.k} className="bg-background px-4 py-5">
               <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">

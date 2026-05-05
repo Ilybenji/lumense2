@@ -23,8 +23,8 @@ export function StatusBar() {
       <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-4 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground md:px-8">
         <div className="flex items-center gap-2">
           <span className="inline-block size-1.5 bg-accent" aria-hidden />
-          <span>STUDIO ÖPPEN</span>
-          <span className="hidden md:inline">— TAR EMOT PROJEKT FÖR Q3 / Q4 2026</span>
+          <span>STUDIO OPEN</span>
+          <span className="hidden md:inline">- ACCEPTING PROJECTS FOR Q3 / Q4 2026</span>
         </div>
         <div className="hidden items-center gap-6 md:flex">
           <span>STOCKHOLM, SE · 59.33°N 18.06°E</span>

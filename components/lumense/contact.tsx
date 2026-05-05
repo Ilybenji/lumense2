@@ -6,19 +6,19 @@ export function Contact() {
   return (
     <section id="kontakt" className="relative border-b border-border">
       <div className="relative mx-auto max-w-[1440px] px-4 py-16 md:px-8 md:py-24">
-        <SectionHeader index="06" label="KONTAKT" />
+        <SectionHeader index="06" label="CONTACT" />
 
         <div className="mt-14 grid grid-cols-12 gap-x-4 gap-y-12">
           <div className="col-span-12 lg:col-span-8">
             <h2 className="font-sans text-balance text-5xl font-medium leading-[0.95] tracking-[-0.03em] md:text-7xl lg:text-[8.5vw]">
-              Har du ett <span className="text-accent">projekt?</span>
+              Have a <span className="text-accent">project?</span>
               <br />
-              Låt oss höra det.
+              Let's hear it.
             </h2>
 
             <p className="mt-8 max-w-xl text-pretty font-sans text-base leading-relaxed text-foreground/75 md:text-lg">
-              Vi tar an ett begränsat antal projekt per kvartal och svarar inom ett dygn.
-              Skissa kort vad ni vill bygga, vart ni vill nå — så hör vi av oss.
+              We take on a limited number of projects each quarter and reply within
+              one day. Share what you want to build and where you want to go - we will get back to you.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3">
@@ -33,7 +33,7 @@ export function Contact() {
                 href="https://t.me/lumense"
                 className="group inline-flex items-center gap-3 border border-border px-6 py-4 font-mono text-xs uppercase tracking-[0.22em] text-foreground transition-colors hover:border-foreground"
               >
-                Telegram → @lumense
+                Telegram -&gt; @lumense
                 <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
             </div>
@@ -49,11 +49,11 @@ export function Contact() {
               </div>
               <dl className="divide-y divide-border">
                 {[
-                  { k: "TYPISK BUDGET", v: "20K — 250K SEK" },
-                  { k: "PROJEKTLÄNGD", v: "2 — 12 veckor" },
-                  { k: "SVARSTID", v: "Inom 24 timmar" },
-                  { k: "SAMARBETSFORM", v: "Sprint · Retainer" },
-                  { k: "SPRÅK", v: "Svenska / Engelska" },
+                  { k: "TYPICAL BUDGET", v: "20K - 250K SEK" },
+                  { k: "PROJECT LENGTH", v: "2 - 12 weeks" },
+                  { k: "RESPONSE TIME", v: "Within 24 hours" },
+                  { k: "COLLABORATION MODEL", v: "Sprint · Retainer" },
+                  { k: "LANGUAGE", v: "Swedish / English" },
                 ].map((r) => (
                   <div key={r.k} className="flex items-center justify-between gap-4 px-4 py-3.5">
                     <dt className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">

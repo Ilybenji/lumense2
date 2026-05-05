@@ -16,9 +16,9 @@ const mono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Lumense — Grafisk designstudio',
+  title: 'Lumense — Graphic Design Studio',
   description:
-    'Lumense är en grafisk designstudio som bygger varumärken, identiteter och digitala upplevelser för företag som vill synas i framtiden.',
+    'Lumense is a graphic design studio that builds brands, identities, and digital experiences for companies that want to stand out in the future.',
   generator: 'Lumense',
   icons: {
     icon: [
@@ -41,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="sv" className={`${display.variable} ${mono.variable} bg-background`}>
+    <html lang="en" className={`${display.variable} ${mono.variable} bg-background`}>
       <body className="font-sans antialiased text-foreground selection:bg-accent selection:text-accent-foreground">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

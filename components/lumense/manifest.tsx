@@ -4,27 +4,27 @@ import { Reveal } from "@/components/ui/reveal"
 const principles = [
   {
     code: "P.01",
-    title: "Strategi före estetik",
+    title: "Strategy before aesthetics",
     body:
-      "Vi börjar med positionering. Vacker design utan riktning är dekoration — och dekoration åldras snabbt.",
+      "We start with positioning. Beautiful design without direction is decoration - and decoration ages quickly.",
   },
   {
     code: "P.02",
-    title: "Identitet som håller",
+    title: "Identity that lasts",
     body:
-      "Logotyp, typografi och grafiska system byggs som infrastruktur — för att skala, inte för att räddas i nästa rebrand.",
+      "Logos, typography, and graphic systems are built as infrastructure - to scale, not to be rescued in the next rebrand.",
   },
   {
     code: "P.03",
-    title: "Digital med syfte",
+    title: "Digital with purpose",
     body:
-      "Webb och interaktion är inte mockups. Vi designar för prestanda, tillgänglighet och beslutsfattande — inte awards.",
+      "Web and interaction are not mockups. We design for performance, accessibility, and decision-making - not awards.",
   },
   {
     code: "P.04",
-    title: "Rörelse med mening",
+    title: "Motion with intent",
     body:
-      "Animation används där den höjer förståelse eller känsla. Aldrig som filler. Aldrig som bevis på att något hänt.",
+      "Animation is used where it improves understanding or emotion. Never as filler. Never as proof that something happened.",
   },
 ]
 
@@ -38,17 +38,17 @@ export function Manifest() {
           <div className="col-span-12 lg:col-span-7">
             <Reveal>
               <h2 className="font-sans text-balance text-3xl font-medium leading-[1.05] tracking-[-0.02em] md:text-5xl lg:text-6xl">
-                Design är inte
-                <span className="text-muted-foreground"> bara estetik</span> —
-                det är hur ett varumärke
-                <span className="text-accent"> bygger förtroende</span>,
-                skapar igenkänning och får en röst som hörs.
+                Design is not
+                <span className="text-muted-foreground"> just aesthetics</span> -
+                it is how a brand
+                <span className="text-accent"> builds trust</span>,
+                creates recognition, and develops a voice that gets heard.
               </h2>
 
               <p className="mt-8 max-w-xl text-pretty font-sans text-base leading-relaxed text-foreground/75 md:text-lg">
-                Lumense arbetar med grundare, kreatörer och företag som vill byta ut det
-                generiska mot något specifikt. Vi gör färre projekt, men gör dem hela vägen
-                — från positionering till sista pixel i produktion.
+                Lumense works with founders, creators, and companies that want to replace
+                generic with specific. We do fewer projects, but we take them all the way -
+                from positioning to the final pixel in production.
               </p>
             </Reveal>
           </div>
@@ -57,11 +57,11 @@ export function Manifest() {
             <Reveal delay={80}>
               <dl className="grid grid-cols-2 gap-px border border-border bg-border">
                 {[
-                  { k: "BASERAT", v: "Stockholm, SE" },
-                  { k: "GRUNDAT", v: "2022" },
+                  { k: "BASED", v: "Stockholm, SE" },
+                  { k: "FOUNDED", v: "2022" },
                   { k: "TEAM", v: "Independent" },
-                  { k: "DISCIPLIN", v: "Brand · Digital" },
-                  { k: "SPRÅK", v: "SV / EN" },
+                  { k: "DISCIPLINE", v: "Brand · Digital" },
+                  { k: "LANGUAGE", v: "EN / SV" },
                   { k: "STATUS", v: "Q3 / Q4 2026" },
                 ].map((row) => (
                   <div key={row.k} className="bg-card px-4 py-4">
