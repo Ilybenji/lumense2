@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
+import { useLenis } from "lenis/react"
 import { cn } from "@/lib/utils"
 
 const links = [
@@ -15,9 +16,12 @@ const links = [
 
 const sectionIds = links.map((l) => l.href.slice(1))
 
+const easeOutQuart = (t: number) => 1 - Math.pow(1 - t, 4)
+
 export function Nav() {
   const [active, setActive] = useState<string | null>(null)
   const detailsRef = useRef<HTMLDetailsElement>(null)
+  const lenis = useLenis()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -37,14 +41,38 @@ export function Nav() {
     return () => observer.disconnect()
   }, [])
 
-  function closeMobileMenu() {
+  function scrollToSection(href: string) {
+    const target = document.getElementById(href.slice(1))
+    if (!target) return
     if (detailsRef.current) detailsRef.current.open = false
+    if (lenis) {
+      lenis.scrollTo(target, { duration: 1.4, easing: easeOutQuart })
+    } else {
+      target.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
+  function handleClick(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
+    e.preventDefault()
+    scrollToSection(href)
   }
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-4 py-3 md:px-8">
-        <Link href="/" className="flex items-center gap-2 transition-transform duration-300 hover:-translate-y-0.5" aria-label="Lumense — home">
+        <Link
+          href="/"
+          aria-label="Lumense — home"
+          onClick={(e) => {
+            e.preventDefault()
+            if (lenis) {
+              lenis.scrollTo(0, { duration: 1.4, easing: easeOutQuart })
+            } else {
+              window.scrollTo({ top: 0, behavior: "smooth" })
+            }
+          }}
+          className="flex items-center gap-2 transition-transform duration-300 hover:-translate-y-0.5"
+        >
           <svg
             width="28"
             height="28"
@@ -78,6 +106,7 @@ export function Nav() {
               <Link
                 key={l.href}
                 href={l.href}
+                onClick={(e) => handleClick(e, l.href)}
                 aria-current={isActive ? "location" : undefined}
                 className={cn(
                   "group relative flex items-center gap-1.5 px-3 py-2 font-mono text-[11px] uppercase tracking-[0.18em] transition-colors",
@@ -108,6 +137,7 @@ export function Nav() {
         <div className="flex items-center gap-2">
           <Link
             href="#kontakt"
+            onClick={(e) => handleClick(e, "#kontakt")}
             className="group inline-flex items-center gap-2 border border-foreground/90 bg-foreground px-4 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-background transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent hover:border-accent hover:text-accent-foreground"
           >
             Start project
@@ -135,7 +165,7 @@ export function Nav() {
                 <Link
                   key={l.href}
                   href={l.href}
-                  onClick={closeMobileMenu}
+                  onClick={(e) => handleClick(e, l.href)}
                   className="flex items-center gap-2 px-3 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/80 transition-colors hover:text-accent"
                 >
                   <span className="text-accent/80">{l.index}</span>

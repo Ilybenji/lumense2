@@ -58,11 +58,7 @@ export const metadata: Metadata = {
     images: ['https://lumense.xyz/og-image.png'],
   },
   icons: {
-    icon: [
-      { url: '/logolumense-light.svg', media: '(prefers-color-scheme: light)', type: 'image/svg+xml' },
-      { url: '/logolumense-dark.svg', media: '(prefers-color-scheme: dark)', type: 'image/svg+xml' },
-      { url: '/logolumense.svg', type: 'image/svg+xml' },
-    ],
+    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
     apple: '/apple-icon.png',
   },
 }

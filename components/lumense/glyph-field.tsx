@@ -47,7 +47,7 @@ export function GlyphField({ className = "" }: { className?: string }) {
     let dpr = 1
     let cols = 0
     let rows = 0
-    const cell = 12 // px per cell at 1x
+    const cell = 16 // px per cell at 1x
 
     function resize() {
       if (!canvas || !ctx) return
@@ -72,8 +72,23 @@ export function GlyphField({ className = "" }: { className?: string }) {
     const fgRgb = hexToRgb(fgHex) || { r: 235, g: 228, b: 208 }
     const accentRgb = hexToRgb(accentHex) || { r: 255, g: 77, b: 28 }
 
+    // Cache font string — getComputedStyle is expensive to call every frame
+    const fontFamily = getComputedStyle(document.body).getPropertyValue("--font-mono").trim() || "ui-monospace"
+    const fontString = `11px ${fontFamily}`
+
+    const FRAME_INTERVAL = 1000 / 24 // cap at 24 fps — plenty for an ambient background
+    let lastFrameTime = 0
+
     function draw(now: number) {
       if (!ctx || !canvas) return
+
+      // Skip frame if not enough time has elapsed
+      if (now - lastFrameTime < FRAME_INTERVAL) {
+        rafRef.current = requestAnimationFrame(draw)
+        return
+      }
+      lastFrameTime = now
+
       if (!startRef.current) startRef.current = now
       const t = (now - startRef.current) / 1000
 
@@ -81,7 +96,7 @@ export function GlyphField({ className = "" }: { className?: string }) {
       const h = canvas.height / dpr
       ctx.clearRect(0, 0, w, h)
 
-      ctx.font = `11px ${getComputedStyle(document.body).getPropertyValue("--font-mono") || "ui-monospace"}`
+      ctx.font = fontString
       ctx.textBaseline = "middle"
       ctx.textAlign = "center"
 

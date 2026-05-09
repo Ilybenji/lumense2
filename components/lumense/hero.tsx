@@ -3,13 +3,27 @@
 import { useRef } from "react"
 import Link from "next/link"
 import { ArrowDown, ArrowUpRight } from "lucide-react"
+import { useLenis } from "lenis/react"
 import { Reveal } from "@/components/ui/reveal"
 import { CountUp } from "@/components/ui/count-up"
 import { GlyphField } from "./glyph-field"
 
+const easeOutQuart = (t: number) => 1 - Math.pow(1 - t, 4)
+
 export function Hero() {
   const heroRef = useRef<HTMLElement>(null)
   const rafId = useRef<number | null>(null)
+  const lenis = useLenis()
+
+  function scrollTo(href: string) {
+    const target = document.getElementById(href.slice(1))
+    if (!target) return
+    if (lenis) {
+      lenis.scrollTo(target, { duration: 1.4, easing: easeOutQuart })
+    } else {
+      target.scrollIntoView({ behavior: "smooth" })
+    }
+  }
 
   function handleMouseMove(e: React.MouseEvent<HTMLElement>) {
     const clientX = e.clientX
@@ -109,6 +123,7 @@ export function Hero() {
           <div className="col-span-12 flex flex-wrap items-center gap-3 md:col-span-6 md:justify-end">
             <Link
               href="#kontakt"
+              onClick={(e) => { e.preventDefault(); scrollTo("#kontakt") }}
               className="group inline-flex items-center gap-3 rounded-lg border border-foreground bg-foreground px-5 py-3 font-mono text-xs uppercase tracking-[0.18em] text-background transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent hover:border-accent hover:text-accent-foreground"
             >
               Start a project
@@ -116,6 +131,7 @@ export function Hero() {
             </Link>
             <Link
               href="#arbeten"
+              onClick={(e) => { e.preventDefault(); scrollTo("#arbeten") }}
               className="group inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-foreground/60 transition-colors duration-300 hover:text-foreground"
             >
               See selected work
