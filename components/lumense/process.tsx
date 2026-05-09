@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/ui/reveal"
 import { SectionHeader } from "./section-header"
 
 const steps = [
@@ -52,24 +53,37 @@ export function Process() {
         </div>
 
         <ol className="mt-12 grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-2 xl:grid-cols-4">
-          {steps.map((step) => (
-            <li key={step.index} className="group relative bg-background p-6 transition-colors duration-300 hover:bg-card/40 md:p-8">
-              <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-                <span className="text-accent transition-transform duration-300 group-hover:translate-x-0.5">{step.index}</span>
-                <span>{step.phase}</span>
-              </div>
+          {steps.map((step, index) => (
+            <li key={step.index} className="group relative bg-background transition-colors duration-300 hover:bg-card/40">
+              <Reveal delay={index * 80} className="p-6 md:p-8">
+                <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+                  <span className="text-accent transition-transform duration-300 group-hover:translate-x-0.5">{step.index}</span>
+                  <span>{step.phase}</span>
+                </div>
 
-              <h3 className="mt-8 font-sans text-2xl font-medium leading-tight tracking-tight md:text-3xl">
-                {step.title}
-              </h3>
-              <p className="mt-3 text-pretty font-sans text-sm leading-relaxed text-foreground/70">
-                {step.body}
-              </p>
+                <h3 className="mt-8 font-sans text-2xl font-medium leading-tight tracking-tight md:text-3xl">
+                  {step.title}
+                </h3>
+                <p className="mt-3 text-pretty font-sans text-sm leading-relaxed text-foreground/70">
+                  {step.body}
+                </p>
 
-              <div className="mt-8 border-t border-border pt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                <span className="text-foreground/80">Output -&gt; </span>
-                {step.output}
-              </div>
+                <div className="mt-8 hidden border-t border-border pt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground md:block">
+                  <span className="text-foreground/80">Output → </span>
+                  {step.output}
+                </div>
+
+                <details className="mt-8 border-t border-border pt-4 md:hidden">
+                  <summary className="cursor-pointer list-none font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-foreground">
+                    <span className="text-foreground/80">Output</span>
+                    <span className="ml-1 text-accent">▸</span>
+                  </summary>
+                  <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                    {step.output}
+                  </p>
+                </details>
+              </Reveal>
+
               <span
                 aria-hidden
                 className="pointer-events-none absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-accent transition-transform duration-400 group-hover:scale-x-100"

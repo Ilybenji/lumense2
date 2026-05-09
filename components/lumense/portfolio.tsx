@@ -139,8 +139,8 @@ export function Portfolio() {
                   <span
                     aria-hidden
                     className={
-                      "hidden shrink-0 font-mono text-[10px] uppercase tracking-[0.22em] transition-colors md:inline " +
-                      (hovered === p.id ? "text-accent" : "text-muted-foreground")
+                      "hidden shrink-0 font-mono text-[10px] uppercase tracking-[0.22em] transition-all duration-300 md:inline " +
+                      (hovered === p.id ? "text-accent translate-x-1" : "text-muted-foreground translate-x-0")
                     }
                   >
                     VIEW -&gt;

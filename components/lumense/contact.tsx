@@ -1,15 +1,16 @@
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
+import { Reveal } from "@/components/ui/reveal"
 import { SectionHeader } from "./section-header"
 
 export function Contact() {
   return (
     <section id="kontakt" className="relative border-b border-border">
       <div className="relative mx-auto max-w-[1440px] px-4 py-16 md:px-8 md:py-24">
-        <SectionHeader index="06" label="CONTACT" />
+        <SectionHeader index="05" label="CONTACT" />
 
         <div className="mt-14 grid grid-cols-12 gap-x-4 gap-y-12">
-          <div className="col-span-12 lg:col-span-8">
+          <Reveal className="col-span-12 lg:col-span-8">
             <h2 className="font-sans text-balance text-5xl font-medium leading-[0.95] tracking-[-0.03em] md:text-7xl lg:text-[8.5vw]">
               Have a <span className="text-accent">project?</span>
               <br />
@@ -37,9 +38,9 @@ export function Contact() {
                 <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
             </div>
-          </div>
+          </Reveal>
 
-          <aside className="col-span-12 lg:col-span-4">
+          <Reveal delay={100} className="col-span-12 lg:col-span-4">
             <div className="border border-border bg-card/40">
               <div className="flex items-center justify-between border-b border-border px-4 py-3 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
                 <span>intake.session</span>
@@ -64,7 +65,7 @@ export function Contact() {
                 ))}
               </dl>
             </div>
-          </aside>
+          </Reveal>
         </div>
       </div>
     </section>

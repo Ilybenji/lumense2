@@ -65,7 +65,7 @@ export function Services() {
         <div className="mt-14 grid grid-cols-12 gap-x-4 gap-y-8">
           <Reveal className="col-span-12 lg:col-span-9">
             <h2 className="font-sans text-balance text-4xl font-medium leading-[1.02] tracking-[-0.02em] md:text-6xl lg:text-7xl">
-              What we do - <span className="text-muted-foreground">and what we do not do.</span>
+              Våra Tjänster — <span className="text-muted-foreground">What We Do</span>
             </h2>
           </Reveal>
           <Reveal className="col-span-12 max-w-md self-end text-pretty font-sans text-sm leading-relaxed text-foreground/70 md:text-base lg:col-span-3">

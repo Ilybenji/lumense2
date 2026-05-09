@@ -1,5 +1,9 @@
+"use client"
+
+import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 const links = [
   { label: "Manifest", href: "#manifest", index: "01" },
@@ -9,7 +13,34 @@ const links = [
   { label: "Contact", href: "#kontakt", index: "05" },
 ]
 
+const sectionIds = links.map((l) => l.href.slice(1))
+
 export function Nav() {
+  const [active, setActive] = useState<string | null>(null)
+  const detailsRef = useRef<HTMLDetailsElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActive(entry.target.id)
+        }
+      },
+      { rootMargin: "-20% 0px -70% 0px", threshold: 0 },
+    )
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
+    })
+
+    return () => observer.disconnect()
+  }, [])
+
+  function closeMobileMenu() {
+    if (detailsRef.current) detailsRef.current.open = false
+  }
+
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-4 py-3 md:px-8">
@@ -40,16 +71,38 @@ export function Nav() {
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex" aria-label="Main navigation">
-          {links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="group flex items-center gap-1.5 px-3 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <span className="text-accent/70 group-hover:text-accent">{l.index}</span>
-              <span>{l.label}</span>
-            </Link>
-          ))}
+          {links.map((l) => {
+            const id = l.href.slice(1)
+            const isActive = active === id
+            return (
+              <Link
+                key={l.href}
+                href={l.href}
+                aria-current={isActive ? "location" : undefined}
+                className={cn(
+                  "group relative flex items-center gap-1.5 px-3 py-2 font-mono text-[11px] uppercase tracking-[0.18em] transition-colors",
+                  isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground",
+                )}
+              >
+                <span
+                  className={cn(
+                    "transition-colors",
+                    isActive ? "text-accent" : "text-accent/70 group-hover:text-accent",
+                  )}
+                >
+                  {l.index}
+                </span>
+                <span>{l.label}</span>
+                <span
+                  aria-hidden
+                  className={cn(
+                    "absolute bottom-0 left-3 right-3 h-px origin-left bg-accent transition-transform duration-300",
+                    isActive ? "scale-x-100" : "scale-x-0",
+                  )}
+                />
+              </Link>
+            )
+          })}
         </nav>
 
         <div className="flex items-center gap-2">
@@ -61,7 +114,7 @@ export function Nav() {
             <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
 
-          <details className="group relative md:hidden">
+          <details ref={detailsRef} className="group relative md:hidden">
             <summary
               aria-label="Open menu"
               className="flex size-10 cursor-pointer list-none items-center justify-center border border-border text-foreground transition-colors hover:border-foreground"
@@ -82,6 +135,7 @@ export function Nav() {
                 <Link
                   key={l.href}
                   href={l.href}
+                  onClick={closeMobileMenu}
                   className="flex items-center gap-2 px-3 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/80 transition-colors hover:text-accent"
                 >
                   <span className="text-accent/80">{l.index}</span>

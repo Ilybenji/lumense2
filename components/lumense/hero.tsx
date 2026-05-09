@@ -1,4 +1,6 @@
+"use client"
 
+import { useRef } from "react"
 import Link from "next/link"
 import { ArrowDown, ArrowUpRight } from "lucide-react"
 import { Reveal } from "@/components/ui/reveal"
@@ -6,8 +8,29 @@ import { CountUp } from "@/components/ui/count-up"
 import { GlyphField } from "./glyph-field"
 
 export function Hero() {
+  const heroRef = useRef<HTMLElement>(null)
+  const rafId = useRef<number | null>(null)
+
+  function handleMouseMove(e: React.MouseEvent<HTMLElement>) {
+    const clientX = e.clientX
+    const clientY = e.clientY
+    if (rafId.current !== null) cancelAnimationFrame(rafId.current)
+    rafId.current = requestAnimationFrame(() => {
+      rafId.current = null
+      const el = heroRef.current
+      if (!el) return
+      const rect = el.getBoundingClientRect()
+      el.style.setProperty("--mx", `${((clientX - rect.left) / rect.width) * 100}%`)
+      el.style.setProperty("--my", `${((clientY - rect.top) / rect.height) * 100}%`)
+    })
+  }
+
   return (
-    <section className="relative border-b border-border overflow-hidden">
+    <section
+      ref={heroRef}
+      onMouseMove={handleMouseMove}
+      className="group/hero relative border-b border-border overflow-hidden"
+    >
       {/* Animated glyph canvas — sits behind all hero content */}
       <div
         className="absolute inset-0 z-0"
@@ -19,42 +42,64 @@ export function Hero() {
         <GlyphField className="opacity-80" />
       </div>
 
+      {/* Mouse-tracking accent spotlight */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-[1] opacity-0 transition-opacity duration-700 group-hover/hero:opacity-100"
+        style={{
+          background:
+            "radial-gradient(circle 520px at var(--mx, 50%) var(--my, 50%), rgba(255,77,28,0.08) 0%, transparent 70%)",
+        }}
+      />
+
       <div className="relative z-10 mx-auto grid max-w-[1440px] grid-cols-12 gap-x-4 px-4 pt-16 md:px-8 md:pt-24">
-        {/* Headline */}
+        <h1 className="sr-only">Designbyrå &amp; Webbyrå i Sverige – Lumense</h1>
+
+        {/* Headline — word-by-word blur entrance */}
         <div className="col-span-12">
-          <Reveal>
-            <h1 className="font-sans text-balance text-[12vw] font-medium leading-[0.88] tracking-[-0.04em] md:text-[8.5vw] lg:text-[6.5vw]">
-              Brands<br />
-              built to be<br />
-              <span>
-                seen in the future
-                <span
-                  aria-hidden
-                  className="ml-[0.18em] inline-flex h-[0.7em] w-[0.7em] translate-y-[0.06em] rounded-sm bg-accent align-baseline text-background"
-                >
-                  <svg viewBox="0 0 2000 2000" className="h-full w-full fill-current" xmlns="http://www.w3.org/2000/svg">
-                    <g transform="matrix(5.448014,0,0,5.448014,-1335.055625,-867.480903)">
-                      <rect x="280.692" y="392.085" width="98.612" height="98.612" />
-                    </g>
-                    <g transform="matrix(5.448014,0,0,5.448014,1805.84437,1268.603712)">
-                      <path d="M0,-197.218L-98.607,-197.218L-197.218,-98.611L-98.607,-98.611L-98.607,0L0,-98.611L0,-197.218Z" />
-                    </g>
-                    <g transform="matrix(5.448014,0,0,5.448014,731.395198,1268.603712)">
-                      <path d="M0,98.612L197.218,98.612L197.218,0L98.607,0L0,98.612Z" />
-                    </g>
-                    <g transform="matrix(5.448014,0,0,5.448014,731.395198,731.396288)">
-                      <path d="M0,0L0,-98.612L-98.612,-98.612L-98.612,98.607L0,0Z" />
-                    </g>
-                  </svg>
-                </span>
+          <h2 className="font-sans text-[12vw] font-medium leading-[0.88] tracking-[-0.04em] md:text-[8.5vw] lg:text-[6.5vw]">
+            <span className="inline-block animate-word-in" style={{ animationDelay: "80ms" }}>Brands</span>
+            <br />
+            <span className="inline-block animate-word-in" style={{ animationDelay: "170ms" }}>built</span>
+            {" "}
+            <span className="inline-block animate-word-in" style={{ animationDelay: "230ms" }}>to</span>
+            {" "}
+            <span className="inline-block animate-word-in" style={{ animationDelay: "290ms" }}>be</span>
+            <br />
+            <span>
+              <span className="inline-block animate-word-in" style={{ animationDelay: "370ms" }}>seen</span>
+              {" "}
+              <span className="inline-block animate-word-in" style={{ animationDelay: "430ms" }}>in</span>
+              {" "}
+              <span className="inline-block animate-word-in" style={{ animationDelay: "490ms" }}>the</span>
+              {" "}
+              <span className="inline-block animate-word-in" style={{ animationDelay: "550ms" }}>future</span>
+              <span
+                aria-hidden
+                className="ml-[0.18em] inline-flex h-[0.7em] w-[0.7em] translate-y-[0.06em] rounded-sm bg-accent align-baseline text-background animate-mark-in"
+                style={{ animationDelay: "680ms" }}
+              >
+                <svg viewBox="0 0 2000 2000" className="h-full w-full fill-current" xmlns="http://www.w3.org/2000/svg">
+                  <g transform="matrix(5.448014,0,0,5.448014,-1335.055625,-867.480903)">
+                    <rect x="280.692" y="392.085" width="98.612" height="98.612" />
+                  </g>
+                  <g transform="matrix(5.448014,0,0,5.448014,1805.84437,1268.603712)">
+                    <path d="M0,-197.218L-98.607,-197.218L-197.218,-98.611L-98.607,-98.611L-98.607,0L0,-98.611L0,-197.218Z" />
+                  </g>
+                  <g transform="matrix(5.448014,0,0,5.448014,731.395198,1268.603712)">
+                    <path d="M0,98.612L197.218,98.612L197.218,0L98.607,0L0,98.612Z" />
+                  </g>
+                  <g transform="matrix(5.448014,0,0,5.448014,731.395198,731.396288)">
+                    <path d="M0,0L0,-98.612L-98.612,-98.612L-98.612,98.607L0,0Z" />
+                  </g>
+                </svg>
               </span>
-            </h1>
-          </Reveal>
+            </span>
+          </h2>
         </div>
 
-
         {/* Sub block */}
-        <Reveal className="col-span-12 mt-12 grid grid-cols-12 gap-4 border-t border-border pt-10 md:mt-20">
+        <Reveal delay={550} className="col-span-12 mt-12 grid grid-cols-12 gap-4 border-t border-border pt-10 md:mt-20">
           <p className="col-span-12 max-w-2xl text-pretty font-sans text-base leading-relaxed text-foreground/80 md:col-span-6 md:text-lg">
             Lumense is an independent design studio creating brand identity, visual
             communication, and digital content - designed to make an impact, not to fill
@@ -71,10 +116,10 @@ export function Hero() {
             </Link>
             <Link
               href="#arbeten"
-              className="inline-flex items-center gap-3 rounded-lg border border-border px-5 py-3 font-mono text-xs uppercase tracking-[0.18em] text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-foreground"
+              className="group inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-foreground/60 transition-colors duration-300 hover:text-foreground"
             >
               See selected work
-              <ArrowDown className="size-4" />
+              <ArrowDown className="size-4 transition-transform duration-300 group-hover:translate-y-0.5" />
             </Link>
           </div>
         </Reveal>

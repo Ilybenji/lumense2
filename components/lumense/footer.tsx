@@ -67,7 +67,7 @@ export function Footer() {
               { l: "Process", h: "#process" },
             ].map((i) => (
               <li key={i.l}>
-                <Link href={i.h} className="text-foreground/80 transition-colors hover:text-accent">
+                <Link href={i.h} className="inline-flex text-foreground/80 transition-all duration-200 hover:translate-x-1 hover:text-accent">
                   {i.l}
                 </Link>
               </li>
@@ -82,17 +82,17 @@ export function Footer() {
           <ul className="mt-4 space-y-2 font-sans text-sm">
             <li className="text-foreground/80">Berk Grbovic</li>
             <li>
-              <Link href="mailto:hello@lumense.xyz" className="text-foreground/80 transition-colors hover:text-accent">
+              <Link href="mailto:hello@lumense.xyz" className="inline-flex text-foreground/80 transition-all duration-200 hover:translate-x-1 hover:text-accent">
                 hello@lumense.xyz
               </Link>
             </li>
             <li>
-              <Link href="https://t.me/lumense" className="text-foreground/80 transition-colors hover:text-accent">
+              <Link href="https://t.me/lumense" className="inline-flex text-foreground/80 transition-all duration-200 hover:translate-x-1 hover:text-accent">
                 Telegram
               </Link>
             </li>
             <li>
-              <Link href="https://instagram.com/lumense.studio" className="text-foreground/80 transition-colors hover:text-accent">
+              <Link href="https://instagram.com/lumense.studio" className="inline-flex text-foreground/80 transition-all duration-200 hover:translate-x-1 hover:text-accent">
                 Instagram
               </Link>
             </li>

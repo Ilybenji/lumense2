@@ -79,7 +79,8 @@ export function Manifest() {
         {/* Principles */}
         <div className="mt-16 grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-2">
           {principles.map((p, index) => (
-            <Reveal key={p.code} delay={index * 80} className="group bg-background p-6 transition-colors hover:bg-card md:p-8">
+            <Reveal key={p.code} delay={index * 80} className="group relative bg-background p-6 transition-colors hover:bg-card md:p-8">
+              <span aria-hidden className="absolute left-0 top-0 h-full w-0.5 origin-top scale-y-0 bg-accent transition-transform duration-400 group-hover:scale-y-100" />
               <article>
                 <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
                   {p.code}
@@ -87,9 +88,17 @@ export function Manifest() {
                 <h3 className="mt-6 font-sans text-2xl font-medium leading-tight tracking-tight md:text-3xl">
                   {p.title}
                 </h3>
-                <p className="mt-4 max-w-md text-pretty font-sans text-sm leading-relaxed text-foreground/70 md:text-base">
+                <p className="mt-4 hidden max-w-md text-pretty font-sans text-sm leading-relaxed text-foreground/70 md:block md:text-base">
                   {p.body}
                 </p>
+                <details className="mt-4 md:hidden">
+                  <summary className="cursor-pointer list-none font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-foreground">
+                    Read more <span className="text-accent">▸</span>
+                  </summary>
+                  <p className="mt-3 max-w-md text-pretty font-sans text-sm leading-relaxed text-foreground/70">
+                    {p.body}
+                  </p>
+                </details>
               </article>
             </Reveal>
           ))}
